@@ -1,0 +1,553 @@
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/manrope-0.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/manrope-1.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/manrope-2.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/manrope-3.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(fonts/manrope-4.ttf) format('truetype');
+}
+
+:root{
+  --bg:#0A1420;
+  --panel:#101F33;
+  --panel-2:#152A44;
+  --accent-from:#33E6C9;
+  --accent-to:#7B6EF6;
+  --accent-solid:#33E6C9;
+  --cream:#EDEFF5;
+  --cream-dim:#9FB0C3;
+  --line:rgba(237,239,245,0.12);
+  --whatsapp:#25D366;
+  --font-normal:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+html{
+  scroll-behavior:smooth;
+}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:var(--font-normal);
+  line-height:1.55;
+  position:relative;
+  overflow-x:hidden;
+}
+h1,h2,h3,.display{
+  font-family:var(--font-normal);
+  font-weight:700;
+  letter-spacing:normal;
+}
+a{
+  color:inherit;
+}
+.wrap{
+  max-width:1080px;
+  margin:0 auto;
+  padding:0 24px;
+}
+.accent-text{
+  color:var(--accent-solid);
+}
+main, header, section, footer, nav, .hero-wrap{
+  position:relative;
+  z-index:2;
+}
+
+/* NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:22px 24px;
+  max-width:1080px;
+  margin:0 auto;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.brand{
+  font-family:var(--font-normal);
+  font-weight:700;
+  font-size:1.1rem;
+  letter-spacing:0.02em;
+}
+.brand span{
+  color:var(--accent-solid);
+}
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.lang-select{
+  background:var(--panel);
+  color:var(--cream);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:8px 10px;
+  font-family:var(--font-normal);
+  font-size:.82rem;
+  cursor:pointer;
+}
+nav a.nav-cta{
+  background:var(--accent-solid);
+  color:#08131C;
+  font-weight:700;
+  font-size:.85rem;
+  padding:11px 20px;
+  border-radius:8px;
+  text-decoration:none;
+  transition:filter .2s ease;
+}
+nav a.nav-cta:hover{
+  filter:brightness(1.06);
+}
+
+/* BANNIÈRE + NAV + HERO SUR FOND IMAGE */
+.hero-wrap{
+  position:relative;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+}
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:linear-gradient(180deg, rgba(8,14,22,.6) 0%, rgba(8,14,22,.82) 55%, var(--bg) 100%);
+}
+.hero-wrap nav,
+.hero-wrap header.hero{
+  position:relative;
+  z-index:2;
+}
+
+header.hero{
+  padding:64px 24px 76px;
+}
+.hero-inner{
+  max-width:760px;
+  margin:0 auto;
+  text-align:center;
+}
+.eyebrow{
+  color:var(--accent-solid);
+  font-size:.76rem;
+  font-weight:700;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  margin-bottom:18px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 16px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:rgba(255,255,255,0.03);
+}
+h1.display{
+  font-size:clamp(2.1rem,4.4vw,3.2rem);
+  line-height:1.15;
+  margin-bottom:20px;
+}
+h1.display em{
+  font-style:normal;
+  color:var(--accent-solid);
+}
+.hero p.lead{
+  color:var(--cream-dim);
+  font-size:1.08rem;
+  max-width:52ch;
+  margin:0 auto 34px;
+}
+.hero-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--cream);
+  color:var(--bg);
+  font-weight:700;
+  padding:16px 28px;
+  border-radius:8px;
+  text-decoration:none;
+  font-size:.98rem;
+}
+
+/* CATALOGUE */
+section{
+  padding:64px 0;
+}
+.section-head{
+  max-width:56ch;
+  margin:0 auto 44px;
+  text-align:center;
+}
+.section-head h2{
+  font-size:clamp(1.5rem,2.6vw,2.1rem);
+}
+.section-head p{
+  color:var(--cream-dim);
+  margin-top:12px;
+}
+
+.catalog{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+.course-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.course-banner{
+  width:100%;
+  aspect-ratio:16/10;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(160deg,var(--panel-2),var(--bg));
+  position:relative;
+  overflow:hidden;
+}
+.course-banner::after{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border:1px solid var(--line);
+  border-radius:10px;
+}
+.course-banner img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.course-body{
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+.course-body p.desc{
+  color:var(--cream);
+  font-size:.96em;
+  font-style:normal;
+  opacity:.9;
+  margin-bottom:14px;
+}
+
+/* PRIX : original barré + prix promo */
+.course-price{
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:18px;
+  padding-top:6px;
+}
+.course-price .duree-label{
+  width:100%;
+  display:block;
+  color:var(--cream);
+  font-size:clamp(1.3rem,2.4vw,1.6rem);
+  text-transform:none;
+  letter-spacing:0;
+  font-weight:700;
+  margin-bottom:8px;
+}
+.course-price .price-old{
+  color:var(--cream-dim);
+  font-size:1rem;
+  text-decoration:line-through;
+  text-decoration-color:rgba(159,176,195,.7);
+  opacity:.75;
+}
+.course-price .price-new{
+  font-size:1.9rem;
+  font-weight:700;
+  color:var(--accent-solid);
+}
+.course-price .promo-badge{
+  background:rgba(51,230,201,.14);
+  color:var(--accent-solid);
+  font-size:.7rem;
+  font-weight:700;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  padding:4px 10px;
+  border-radius:999px;
+  border:1px solid rgba(51,230,201,.3);
+}
+
+.course-cta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  text-align:center;
+  text-decoration:none;
+  background:var(--whatsapp);
+  color:#06210F;
+  border:none;
+  border-radius:8px;
+  padding:14px;
+  font-weight:700;
+  font-size:.92rem;
+  font-family:var(--font-normal);
+  margin-top:auto;
+}
+.course-cta .wa-icon{
+  width:20px;
+  height:20px;
+  flex-shrink:0;
+}
+
+/* Bulle WhatsApp flottante */
+.whatsapp-float{
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  width:58px;
+  height:58px;
+  background:var(--whatsapp);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 8px 24px rgba(0,0,0,0.35);
+  z-index:1000;
+  text-decoration:none;
+}
+.whatsapp-float .wa-icon{
+  width:32px;
+  height:32px;
+  color:#ffffff;
+}
+
+footer{
+  padding:36px 24px;
+  text-align:center;
+  color:var(--cream-dim);
+  font-size:.82rem;
+}
+footer a{
+  text-decoration:none;
+  opacity:.6;
+}
+
+/* ============================================================
+   BANNIÈRE D'AVERTISSEMENT (pilotée par l'admin)
+   ============================================================ */
+.site-banner{
+  position:relative;
+  z-index:1200;
+  background:#FFB020;
+  color:#231200;
+}
+.site-banner.type-info{
+  background:var(--accent-solid);
+  color:#08131C;
+}
+.site-banner-inner{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  padding:11px 24px;
+  font-size:.88rem;
+  font-weight:600;
+  text-align:center;
+}
+.site-banner-inner button{
+  background:rgba(0,0,0,0.12);
+  border:none;
+  color:inherit;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  cursor:pointer;
+  flex-shrink:0;
+  font-size:.75rem;
+  line-height:1;
+}
+
+/* ============================================================
+   CAPTURES CLIENTS (grille statique, sans animation)
+   ============================================================ */
+.carousel-viewport{
+  overflow-x:auto;
+}
+.carousel-track{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+}
+.screenshot-card{
+  flex:0 0 auto;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.screenshot-card img{
+  display:block;
+  max-height:340px;
+  max-width:280px;
+  width:auto;
+  height:auto;
+  border-radius:8px;
+}
+.carousel-empty{
+  text-align:center;
+  color:var(--cream-dim);
+  padding:30px 0;
+  font-size:.9rem;
+}
+
+/* ============================================================
+   CHAÎNES PAR PAYS (logos affichés directement, sans clic)
+   ============================================================ */
+.channels-grid{
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+}
+.channel-country-title{
+  font-size:1.05rem;
+  margin-bottom:12px;
+  color:var(--cream);
+}
+.channel-country-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
+.channel-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:14px 12px;
+  width:120px;
+  text-align:center;
+}
+.channel-item img{
+  width:64px;
+  height:64px;
+  object-fit:contain;
+}
+.channel-item .channel-name{
+  font-size:.78rem;
+  font-weight:700;
+  color:var(--cream);
+}
+.channel-item .channel-country{
+  font-size:.68rem;
+  color:var(--cream-dim);
+}
+
+/* ADAPTATION MOBILE */
+@media (max-width:820px){
+  .catalog{
+    grid-template-columns:1fr;
+  }
+  .whatsapp-float{
+    width:52px;
+    height:52px;
+    bottom:16px;
+    right:16px;
+  }
+  nav{
+    justify-content:center;
+    text-align:center;
+  }
+}
+
+/* Typographie et grille de logos */
+body { -webkit-font-smoothing:antialiased; }
+h1,h2,h3,.display { letter-spacing:-.035em; text-wrap:balance; }
+h1.display { font-size:clamp(2.3rem,5vw,3.8rem); line-height:1.12; font-weight:800; }
+.hero p.lead { line-height:1.75; }
+.eyebrow { text-transform:none; letter-spacing:.02em; font-size:.875rem; }
+.country-control { display:flex; flex-direction:column; gap:4px; text-align:start; }
+.country-control label { font-size:.75rem; color:var(--cream-dim); }
+.lang-select { max-width:240px; font-size:.875rem; min-height:44px; }
+button,select { font:inherit; }
+:focus-visible { outline:3px solid var(--accent-solid); outline-offset:4px; }
+.price-new,.price-old { font-variant-numeric:tabular-nums; }
+.course-banner { aspect-ratio:2.5; padding:24px; align-items:flex-start; gap:12px; }
+.plan-brand { font-size:.8rem; font-weight:800; letter-spacing:.15em; color:var(--cream-dim); }
+.plan-duration { font-size:clamp(2rem,4vw,2.8rem); font-weight:800; letter-spacing:-.05em; }
+.course-body p.desc { font-size:1rem; }
+.channel-country-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(132px,1fr)); }
+.channel-item { width:auto; min-width:0; justify-content:flex-start; }
+.channel-item img { width:100%; height:84px; padding:10px; background:#fff; border-radius:8px; }
+.channel-item .channel-name { font-size:.875rem; overflow-wrap:anywhere; }
+.channel-item .channel-country { font-size:.75rem; }
+.channel-country-group { content-visibility:auto; contain-intrinsic-size:auto 700px; }
+.channel-country-title { display:flex; align-items:baseline; gap:12px; }
+.channel-count { font-size:.8rem; color:var(--cream-dim); font-weight:500; letter-spacing:0; }
+.rates-note { text-align:center; font-size:.8rem; color:var(--cream-dim); margin:24px auto 0; max-width:65ch; }
+.rates-note a { text-underline-offset:3px; }
+[hidden] { display:none !important; }
+html[dir="rtl"] .whatsapp-float { right:auto; left:22px; }
+@media(max-width:480px) { .wrap { padding:0 18px; } .nav-right { width:100%; justify-content:space-between; gap:8px; } .lang-select { max-width:195px; } nav a.nav-cta { padding:12px; font-size:.75rem; } .course-body { padding:20px; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+
+/* Visuels originaux des quatre abonnements, affichés intégralement. */
+.course-banner { aspect-ratio:600/365; padding:0; display:block; }
+.course-banner img { width:100%; height:100%; object-fit:cover; }
+.channel-search { max-width:620px; margin:0 auto 32px; }
+.channel-search label { display:block; margin-bottom:10px; font-weight:600; }
+.channel-search input { width:100%; min-height:50px; padding:12px 16px; border:1px solid var(--line); border-radius:10px; background:var(--panel); color:var(--cream); font:inherit; }
+.channel-search input::placeholder { color:var(--cream-dim); opacity:1; }
+.channel-search-status { margin-top:10px; min-height:1.5em; color:var(--cream-dim); font-size:.875rem; }

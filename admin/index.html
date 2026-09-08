@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Administration — FASTBOOLA</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- ÉCRAN DE CONNEXION -->
+<div class="login-screen" id="login-screen">
+  <form class="login-card" id="login-form" autocomplete="off">
+    <div class="login-brand">FAST<span>BOOLA</span></div>
+    <h1>Espace administration</h1>
+    <p class="login-sub">Connectez-vous pour modifier les couleurs, les prix et les captures du site.</p>
+
+    <label class="field">
+      <span>Email</span>
+      <input type="email" id="email" name="email" required autocomplete="username">
+    </label>
+
+    <label class="field">
+      <span>Mot de passe</span>
+      <input type="password" id="password" name="password" required autocomplete="current-password">
+    </label>
+
+    <!-- Piège à robots (invisible pour un humain) -->
+    <div class="hp-field" aria-hidden="true">
+      <label>Laisser vide<input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off"></label>
+    </div>
+
+    <label class="field captcha-field">
+      <span id="captcha-question">Vérification anti-robot : chargement…</span>
+      <input type="number" id="captcha-answer" required inputmode="numeric">
+      <button type="button" class="btn-ghost captcha-retry" id="captcha-retry-btn" hidden>Recharger la vérification</button>
+    </label>
+
+    <button type="submit" class="btn-primary" id="login-btn" disabled>Se connecter</button>
+    <p class="login-error" id="login-error"></p>
+  </form>
+</div>
+
+<!-- TABLEAU DE BORD -->
+<div class="dashboard" id="dashboard" hidden>
+  <header class="dash-header">
+    <div class="login-brand">FAST<span>BOOLA</span> <small>Admin</small></div>
+    <div class="dash-actions">
+      <a href="/" target="_blank" rel="noopener" class="btn-ghost">Voir le site ↗</a>
+      <button class="btn-ghost" id="logout-btn">Déconnexion</button>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn is-active" data-tab="colors">Couleurs</button>
+    <button class="tab-btn" data-tab="prices">Prix</button>
+    <button class="tab-btn" data-tab="screenshots">Captures</button>
+    <button class="tab-btn" data-tab="general">Général</button>
+  </nav>
+
+  <main class="dash-content">
+
+    <!-- COULEURS -->
+    <section class="tab-panel is-active" id="tab-colors">
+      <h2>Couleurs du site</h2>
+      <p class="hint">Ces couleurs s'appliquent immédiatement à tout le site (fond, cartes, boutons, dégradés).</p>
+      <div class="color-grid" id="color-grid"></div>
+    </section>
+
+    <!-- PRIX -->
+    <section class="tab-panel" id="tab-prices">
+      <h2>Prix des abonnements</h2>
+      <p class="hint">Le "prix barré" est affiché comme ancien prix. Le "prix promo" est le prix actuel mis en avant. S'ils sont identiques, aucun prix barré n'est affiché.</p>
+      <div class="price-grid" id="price-grid"></div>
+    </section>
+
+    <!-- CAPTURES -->
+    <section class="tab-panel" id="tab-screenshots">
+      <h2>Captures de clients satisfaits</h2>
+      <p class="hint">Ajoutez des captures d'écran (conversations WhatsApp, retours clients, etc.). Elles s'affichent à leur taille naturelle sur le site.</p>
+
+      <label class="btn-primary upload-btn" for="screenshot-upload">Ajouter une capture</label>
+      <input type="file" id="screenshot-upload" accept="image/*" hidden multiple>
+      <p class="hint" id="upload-hint"></p>
+
+      <div id="screenshots-admin-list" class="screenshots-admin-grid"></div>
+    </section>
+
+    <!-- GÉNÉRAL -->
+    <section class="tab-panel" id="tab-general">
+      <h2>Réglages généraux</h2>
+
+      <div class="field-row">
+        <label class="field">
+          <span>Année affichée dans le pied de page (© ... FASTBOOLA)</span>
+          <input type="text" id="footer-year" maxlength="4" style="max-width:120px">
+        </label>
+      </div>
+
+      <h3 class="list-title">Bannière d'avertissement</h3>
+      <p class="hint">Affiche un message en haut du site (ex: maintenance, promo limitée, information importante).</p>
+
+      <div class="field-row">
+        <label class="switch-field">
+          <span>Afficher la bannière</span>
+          <input type="checkbox" id="banner-toggle">
+        </label>
+      </div>
+      <div class="field-row">
+        <label class="field">
+          <span>Type</span>
+          <select id="banner-type">
+            <option value="warning">Avertissement (orange)</option>
+            <option value="info">Information (couleur accent)</option>
+          </select>
+        </label>
+      </div>
+      <div class="field-row">
+        <label class="field">
+          <span>Message affiché</span>
+          <select id="banner-language" aria-label="Langue du message"></select>
+          <textarea id="banner-message" rows="2" maxlength="200"></textarea>
+          <p class="hint">Saisissez le message dans chaque langue souhaitée. Si une traduction est vide, le message français est utilisé.</p>
+        </label>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="dash-footer">
+    <button class="btn-primary" id="save-btn">Enregistrer les modifications</button>
+    <span class="save-status" id="save-status"></span>
+  </footer>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

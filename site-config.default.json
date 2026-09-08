@@ -1,0 +1,39 @@
+{
+  "colors": {
+    "bg": "#0A1420",
+    "panel": "#101F33",
+    "panel2": "#152A44",
+    "accentFrom": "#33E6C9",
+    "accentTo": "#7B6EF6",
+    "accentSolid": "#33E6C9",
+    "textLight": "#EDEFF5",
+    "textDim": "#9FB0C3",
+    "whatsapp": "#25D366",
+    "line": "rgba(237,239,245,0.12)"
+  },
+  "prices": {
+    "price-1": {
+      "original": 6000,
+      "promo": 4000
+    },
+    "price-2": {
+      "original": 13000,
+      "promo": 9000
+    },
+    "price-3": {
+      "original": 21000,
+      "promo": 15000
+    },
+    "price-4": {
+      "original": 34000,
+      "promo": 25000
+    }
+  },
+  "footerYear": "2026",
+  "banner": {
+    "enabled": false,
+    "type": "warning",
+    "message": ""
+  },
+  "screenshots": []
+}
